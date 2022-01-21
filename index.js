@@ -21,9 +21,6 @@ app.use(cors());
 
 app.use(formidable());
 
-//Connexion à la bdd
-mongoose.connect("mongodb://localhost/vinted");
-
 //import model User
 const User = require("./models/User");
 //import model Offer
