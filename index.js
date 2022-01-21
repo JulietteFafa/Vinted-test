@@ -6,19 +6,19 @@ const SHA256 = require("crypto-js/sha256");
 const encBase64 = require("crypto-js/enc-base64");
 const cloudinary = require("cloudinary").v2;
 const cors = require("cors");
-app.use(cors());
+const app = express();
 
+require("dotenv").config();
+mongoose.connect(process.env.MONGODB_URI);
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
   api_key: process.env.API_KEY,
   api_secret: process.env.API_SECRET,
 });
 
-require("dotenv").config();
-mongoose.connect(process.env.MONGODB_URI);
-
+app.use(cors());
 //Création du serveur
-const app = express();
+
 app.use(formidable());
 
 //Connexion à la bdd
